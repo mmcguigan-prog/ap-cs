@@ -17,7 +17,7 @@ void setup() {
   text("float d = (float)7/2 → " + d, 20, 130);
 
   // Strings and length()
-  String studentName = "Ada Lovelace";
+  String studentName = "Molly McGuigan";
   int nameLen = studentName.length();
   text("Name: " + studentName, 20, 180);
   text("Length: " + nameLen, 20, 210);
@@ -25,11 +25,14 @@ void setup() {
   // Label a visual with text()
   float hoursSlept = 7.5;
   float radius = hoursSlept * 12;
+  String label = "label via text";
   fill(220, 80, 90);
   ellipse(500, 180, radius*2, radius*2);
   fill(0);
   text("hoursSlept = " + hoursSlept, 440, 320);
-  text("label via text()", 470, 25);
+  float tw = textWidth(label); // use textWidth to center this label
+  text(label, 500 - (tw/2), 25);
+  
 }
 
 void draw() { }
