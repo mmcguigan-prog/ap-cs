@@ -32,6 +32,7 @@ void setup() {
   text("hoursSlept = " + hoursSlept, 440, 320);
   float tw = textWidth(label); // use textWidth to center this label
   text(label, 500 - (tw/2), 25);
+  // Also could use textAlign
   
 }
 
