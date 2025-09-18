@@ -1,4 +1,4 @@
-// Bouncing Ball Demo (with noise) - Day 1
+// Ball Demo (with noise) - Day 1
 // Demonstrates: booleans, if statements, noise(), frameRate()
 
 // Position and speed variables
