@@ -7,8 +7,6 @@ float speedX, speedY;
 float ballSize = 50;
 
 // Boolean flags
-boolean movingRight = true;
-boolean movingDown = true;
 boolean isPaused = false;
 
 // Color variables
@@ -46,44 +44,24 @@ void draw() {
   
   // Only move if not paused
   if (!isPaused) {
-    // Update position based on direction
-    if (movingRight) {
-      x = x + speedX;
-    } else {
-      x = x - speedX;
+    
+    // Check boundary
+    if (x - ballSize/2 < 0 || x + ballSize/2 > width) {
+      speedX *= -1;
+      r = random(100, 255); //Change to random color
     }
     
-    if (movingDown) {
-      y = y + speedY;
-    } else {
-      y = y - speedY;
+    if (y - ballSize/2 < 0 || y + ballSize/2 > height) {
+      speedY *= -1;
+      r = random(100, 255);//Change to random color
     }
+    
+    // Update position 
+    y += speedY;
+    x += speedX;
   }
   
-  // Check boundaries and bounce
-  // Right wall
-  if (x > width - ballSize/2) {
-    movingRight = false;
-    r = random(100, 255);  // Change color on bounce
-  }
-  
-  // Left wall
-  if (x < ballSize/2) {
-    movingRight = true;
-    r = random(100, 255);
-  }
-  
-  // Bottom wall
-  if (y > height - ballSize/2) {
-    movingDown = false;
-    g = random(100, 255);
-  }
-  
-  // Top wall
-  if (y < ballSize/2) {
-    movingDown = true;
-    g = random(100, 255);
-  }
+
   
   // Display info
   fill(255);
@@ -98,10 +76,10 @@ void keyPressed() {
   }
   
   // Secret controls
-  if (key == 'f') {
+  if (keyCode == RIGHT) {
     frameRate(10);  // Slow motion
   }
-  if (key == 'F') {
+  if (keyCode == LEFT) {
     frameRate(60);  // Normal speed
   }
 }
