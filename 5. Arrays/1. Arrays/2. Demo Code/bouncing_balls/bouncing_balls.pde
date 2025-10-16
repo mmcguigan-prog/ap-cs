@@ -15,6 +15,7 @@ void setup() {
   ySpeed = new float[n];
   size = new float[n];
 
+  // Fill arrays with initial values
   for (int i = 0; i < n; i++) {
     x[i] = random(width);
     y[i] = random(height);
@@ -28,6 +29,7 @@ void draw() {
 
   background(255);
 
+  // Move each ball and check collisions
   for (int i = 0; i < n; i++) {
     circle(x[i], y[i], size[i] * 2);
     x[i] += xSpeed[i];
