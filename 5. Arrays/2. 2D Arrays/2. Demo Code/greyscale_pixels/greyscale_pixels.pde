@@ -2,7 +2,7 @@ float pixels[][];
 
 void setup() {
   size(400, 400);
-  pixelDensity(2);
+  pixelDensity(1);
 
   int cols = width;
   int rows = height;
