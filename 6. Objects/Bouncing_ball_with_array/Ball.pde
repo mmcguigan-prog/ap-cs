@@ -1,6 +1,7 @@
 class Ball{
   float x,y,xSpeed,ySpeed,r;
   int fillCol;
+  boolean inContact;
   
   Ball(float x, float y, float r){
     this.x = x;
@@ -9,6 +10,7 @@ class Ball{
     fillCol = 0;
     xSpeed = random(-3,3);
     ySpeed = random(-3,3);
+    inContact = false;
   }
   
   void move(){
@@ -17,6 +19,11 @@ class Ball{
   }
   
   void show(){
+    if (inContact){
+      fillCol = 255;
+    }else{
+      fillCol = 0;
+    }
     fill(fillCol);
     circle(x,y,r*2);
   }
@@ -32,10 +39,12 @@ class Ball{
   
   void checkCollision(Ball b){
     if (dist(x, y, b.x, b.y) < (r+b.r)){
-      fillCol = 220;
-    }else{
-      fillCol = 0;
+      inContact = true;
     }
+  }
+  
+  void reset(){
+    inContact = false;
   }
 
 }
